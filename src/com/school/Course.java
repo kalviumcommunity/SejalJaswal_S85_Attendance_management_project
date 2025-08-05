@@ -1,17 +1,19 @@
 package com.school;
 
 public class Course {
-    int courseId;
+    private static int nextCourseIdCounter = 101; // Start course IDs from 101 and made private
+
+    int courseId; // Changed to int
     String courseName;
-    
-    public void setCourseDetails(int courseId, String courseName) {
-        this.courseId = courseId;
-        this.courseName = courseName;
+
+    // Constructor
+    public Course(String courseName) {
+        this.courseId = nextCourseIdCounter++; // Auto-increment and assign ID
+        this.courseName = courseName;          // Assign course name
     }
-    
-    public void displayCourse() {
-        System.out.print("Course ID: " + courseId +" ");
-        System.out.println("Course Name: " + courseName);
+
+    public void displayDetails() {
+        // Displaying courseId with a prefix for better readability
+        System.out.println("Course ID: C" + this.courseId + ", Name: " + this.courseName);
     }
-    
 }
